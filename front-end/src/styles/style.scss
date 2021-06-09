@@ -1,18 +1,22 @@
 @import "./main/variables";
 @import "./main/function";
 
-.class_test{
-    background-color: $bg_1;
-    font-size: 50px;
+$background-img-color: rgb(173, 58, 129);
+$todo-container-bgcolor: rgb(46, 47, 51);
 
+#main-body {
+    width: 100vw;
+    margin: 0;
+    background-color: $background-img-color;
     @include displayFlex();
-    @include parameterFlex(green);
+}
 
-    &:hover {
-        background-color: $bg_2;
-    }
+#todo-container{
+    margin-top: 30px;
+    width: 650px;
+    height: 850px;
 
-    &::after{
-        content: "  wow";
-    }
+    background-color: $todo-container-bgcolor;
+    border-radius: 7.5px;
+    @include displayFlex();
 }
