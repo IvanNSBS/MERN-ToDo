@@ -1,6 +1,7 @@
-.class_test {
-  background-color: #3d3d85;
-  font-size: 50px;
+#main-body {
+  width: 100vw;
+  margin: 0;
+  background-color: #ad3a81;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10,15 +11,22 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 200px;
-  color: green;
 }
 
-.class_test:hover {
-  background-color: #23a58f;
-}
-
-.class_test::after {
-  content: "  wow";
+#todo-container {
+  margin-top: 30px;
+  width: 650px;
+  height: 850px;
+  background-color: #2e2f33;
+  border-radius: 7.5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 /*# sourceMappingURL=style.css.map */
