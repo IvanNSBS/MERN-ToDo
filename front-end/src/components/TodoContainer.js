@@ -1,10 +1,14 @@
 import React from "react";
 import "../styles/style.css"
+import ControlledTextArea from "./ControlledTextArea";
+import ControlledDropdown from "./ControlledDropdown";
 
 class TodoContainer extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { date: new Date() };
+        this.state = { date: new Date(), condition: false };
+
+        this.toggleCondition = this.toggleCondition.bind(this);
     }
 
     componentDidMount() {
@@ -21,12 +25,33 @@ class TodoContainer extends React.Component {
         });
     }
 
+    toggleCondition() {
+        this.setState((state) => ({
+            condition: !state.condition
+        }));
+    }
+
+    render() 
+    {
+        let conditionalRender;
+        if(this.state.condition) conditionalRender = "Marrapaaaais" 
+        else conditionalRender = "";
+
+        return( 
+        <div id="todo-container" onClick={this.toggleCondition}>
+            <ControlledTextArea/>
+            <ControlledDropdown/>
+            {/* { this.state.condition && <ClockTest date={this.state.date}/>} */}
+        </div>)
+    }
+}
+
+class ClockTest extends React.Component {
     render() 
     {
         return( 
-        <div id="todo-container">
-            Yo g skillet. How u doin, {this.props.name}?
-            It is: {this.state.date.toLocaleTimeString()}.
+        <div>
+            Time: {this.props.date.toLocaleTimeString()}.
         </div>)
     }
 }

@@ -4,7 +4,7 @@ import TodoContainer from './components/TodoContainer';
 
 ReactDOM.render(
   <React.StrictMode>
-    <TodoContainer name="Cleitonaldo"/>
+    <TodoContainer/>
   </React.StrictMode>,
   document.getElementById('root')
 );
