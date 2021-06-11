@@ -9,6 +9,7 @@ $smaller-font-size: 16px;
 
 #current-day-container{
     @include displayFlex();
+    margin-top: 60px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
