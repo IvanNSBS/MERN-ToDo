@@ -40,6 +40,53 @@
   text-align: center;
 }
 
+.task-creator-container {
+  margin-top: 65px;
+  height: 35px;
+  width: 80%;
+  border-bottom: 1.5px solid rgba(0, 0, 0, 0.363);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-bottom: 30px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#creator-input-field {
+  background-color: #302f31;
+  height: 35px;
+  max-width: 350px;
+  min-width: 350px;
+  border-radius: 5px;
+  border: 1px solid #1c1c1f;
+  color: #797d83;
+  padding-left: 30px;
+}
+
+#creator-submit-btn {
+  margin-left: 25px;
+  height: 35px;
+  max-width: 50px;
+  min-width: 50px;
+  background-color: #302f31;
+  border-radius: 5px;
+  border: 1px solid #1c1c1f;
+  color: #797d83;
+  -webkit-transition: background-color 0.1s ease-out;
+  transition: background-color 0.1s ease-out;
+}
+
+#creator-submit-btn:hover {
+  background-color: rgba(18, 18, 19, 0.493);
+  -webkit-transition: background-color 0.1s ease-out;
+  transition: background-color 0.1s ease-out;
+}
+
 #main-body {
   width: 100vw;
   margin: 0;

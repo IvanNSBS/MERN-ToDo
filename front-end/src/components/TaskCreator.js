@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/style.css"
 
 class TaskCreator extends React.Component{
     constructor(props){
@@ -15,9 +16,9 @@ class TaskCreator extends React.Component{
     render() 
     {
         return( 
-            <div>
-                <input placeHolder={this.state.placeHolder} value={this.state.value} onChange={this.handleChange}></input> 
-                <button>CRIAR</button>
+            <div className="task-creator-container">
+                <input id="creator-input-field" placeHolder={this.state.placeHolder} value={this.state.value} onChange={this.handleChange}></input> 
+                <button id="creator-submit-btn">ADD</button>
             </div>
         )
     }

@@ -10,12 +10,8 @@ class TodoContainer extends React.Component {
     {
         return( 
         <div id="todo-container" onClick={this.toggleCondition}>
-            <div>
-                <CurrentDayView />
-            </div>
-            <div>
-                <TaskCreator/>
-            </div>
+            <CurrentDayView />
+            <TaskCreator/>
         </div>)
     }
 }
