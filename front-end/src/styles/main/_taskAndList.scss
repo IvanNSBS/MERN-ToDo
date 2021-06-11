@@ -1,0 +1,64 @@
+@import "../utils";
+
+$objects-margin: 15px;
+$forms-size: 20px;
+
+#task-list-container {
+    overflow-y: auto;
+    width: 75%;
+}
+
+.task-container {
+    padding: 20px 0;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.task-checkbox-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .task {
+        color: $primary-font-color;
+        margin-left: $objects-margin;
+    }
+
+    .task-checkbox {
+        width: $forms-size;
+        height: $forms-size;
+    }
+}
+
+.delete-task {
+    height: 28px;
+    width: 28px;
+    background-color: $input-background-color;
+    border-radius: 4px;
+    border: 1px solid black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover{
+        background-color: $input-hover-color;
+        transition: background-color 0.1s ease-out;
+    }
+
+    &:active{
+        background-color: $input-click-color;
+        transform: translateY(1px);
+        transition: 0.1s ease-out;
+    }
+
+    .trashbin{
+        color: $primary-font-color;
+        width: 40px;
+        height: 40px;
+    }
+}
