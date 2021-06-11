@@ -1,0 +1,42 @@
+@import "../utils";
+
+$primary-font-color: rgb(215, 215, 235);
+$secondary-font-color: rgb(75, 76, 77);
+$side-margin: 30px;
+$bigger-font-size: 30px;
+$separator-font-size: 40px;
+$smaller-font-size: 16px;
+
+#current-day-container{
+    @include displayFlex();
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@mixin separator($leftMargin, $rightMargin)
+{
+    font-size: $separator-font-size;
+    font-weight: bold;
+    margin-left: $leftMargin;
+    margin-right: $rightMargin;
+    color: $secondary-font-color;
+}
+
+.left-separator{
+    @include separator(0, $side-margin)
+}
+
+.right-separator{
+    @include separator($side-margin, 0)
+}
+
+.primary-font{
+    color: $primary-font-color;
+    font-size: $bigger-font-size;
+    text-align: center;
+}
+
+.secondary-font{
+    color: $secondary-font-color;
+    font-size: $smaller-font-size;
+    text-align: center;
+}

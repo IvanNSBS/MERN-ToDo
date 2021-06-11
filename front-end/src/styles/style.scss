@@ -1,5 +1,5 @@
-@import "./main/variables";
-@import "./main/function";
+@import "./main/currentDayView";
+@import "utils";
 
 $background-img-color: rgb(173, 58, 129);
 $todo-container-bgcolor: rgb(46, 47, 51);
@@ -19,4 +19,9 @@ $todo-container-bgcolor: rgb(46, 47, 51);
     background-color: $todo-container-bgcolor;
     border-radius: 7.5px;
     @include displayFlex();
+}
+
+.no-margin-border{
+    margin: 0px;
+    border: 0px;
 }
