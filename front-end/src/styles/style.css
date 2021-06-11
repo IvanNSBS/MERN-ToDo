@@ -29,7 +29,7 @@
 }
 
 .primary-font {
-  color: #d7d7eb;
+  color: #e3e3ec;
   font-size: 30px;
   text-align: center;
 }
@@ -82,9 +82,97 @@
 }
 
 #creator-submit-btn:hover {
-  background-color: rgba(18, 18, 19, 0.493);
+  background-color: rgba(37, 37, 39, 0.493);
   -webkit-transition: background-color 0.1s ease-out;
   transition: background-color 0.1s ease-out;
+}
+
+#creator-submit-btn:active {
+  background-color: rgba(18, 18, 19, 0.493);
+  -webkit-transform: translateY(1px);
+          transform: translateY(1px);
+  -webkit-transition: 0.1s ease-out;
+  transition: 0.1s ease-out;
+}
+
+#task-list-container {
+  overflow-y: auto;
+  width: 75%;
+}
+
+.task-container {
+  padding: 20px 0;
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.task-checkbox-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.task-checkbox-container .task {
+  color: #e3e3ec;
+  margin-left: 15px;
+}
+
+.task-checkbox-container .task-checkbox {
+  width: 20px;
+  height: 20px;
+}
+
+.delete-task {
+  height: 28px;
+  width: 28px;
+  background-color: #302f31;
+  border-radius: 4px;
+  border: 1px solid black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.delete-task:hover {
+  background-color: rgba(37, 37, 39, 0.493);
+  -webkit-transition: background-color 0.1s ease-out;
+  transition: background-color 0.1s ease-out;
+}
+
+.delete-task:active {
+  background-color: rgba(18, 18, 19, 0.493);
+  -webkit-transform: translateY(1px);
+          transform: translateY(1px);
+  -webkit-transition: 0.1s ease-out;
+  transition: 0.1s ease-out;
+}
+
+.delete-task .trashbin {
+  color: #e3e3ec;
+  width: 40px;
+  height: 40px;
 }
 
 #main-body {

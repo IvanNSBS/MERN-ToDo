@@ -1,4 +1,3 @@
-$input-background-color: rgb(48, 47, 49);
 $font-color: rgb(121, 125, 131);
 
 $container-margin-height: 65px;
@@ -44,7 +43,13 @@ $inputs-border-radius: 5px;
     transition: background-color 0.1s ease-out;
 
     &:hover{
-        background-color: rgba(18, 18, 19, 0.493);
+        background-color: $input-hover-color;
         transition: background-color 0.1s ease-out;
+    }
+
+    &:active{
+        background-color: $input-click-color;
+        transform: translateY(1px);
+        transition: 0.1s ease-out;
     }
 }

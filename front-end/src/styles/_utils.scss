@@ -1,3 +1,10 @@
+$primary-font-color: rgb(227, 227, 236);
+$secondary-font-color: rgb(75, 76, 77);
+
+$input-background-color: rgb(48, 47, 49);
+$input-hover-color: rgba(37, 37, 39, 0.493);
+$input-click-color: rgba(18, 18, 19, 0.493);
+
 @mixin displayFlex {    
     display: flex;
     justify-content: center;
