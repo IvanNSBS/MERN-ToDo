@@ -1,4 +1,4 @@
-$font-color: rgb(121, 125, 131);
+@import "../utils";
 
 $container-margin-height: 65px;
 $objects-height: 35px;
@@ -24,7 +24,7 @@ $inputs-border-radius: 5px;
 
     border-radius: 5px;
     border: 1px solid rgb(28, 28, 31);
-    color: $font-color;
+    color: $secondary-font-color;
 
     padding-left: 30px;
 }
@@ -38,7 +38,7 @@ $inputs-border-radius: 5px;
     background-color: $input-background-color;
     border-radius: 5px;
     border: 1px solid rgb(28, 28, 31);
-    color: $font-color;
+    color: $secondary-font-color;
 
     transition: background-color 0.1s ease-out;
 
