@@ -28,6 +28,11 @@ $forms-size: 20px;
         margin-left: $objects-margin;
     }
 
+    .finished-task {
+        color: $secondary-font-color;
+        text-decoration: line-through;
+    }
+
     .task-checkbox {
         width: $forms-size;
         height: $forms-size;
