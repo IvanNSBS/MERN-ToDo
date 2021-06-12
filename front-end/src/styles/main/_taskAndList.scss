@@ -37,7 +37,7 @@ $forms-size: 20px;
 .delete-task {
     height: 28px;
     width: 28px;
-    background-color: $input-background-color;
+    background-color: rgb(148, 40, 40);
     border-radius: 4px;
     border: 1px solid black;
 
@@ -46,12 +46,12 @@ $forms-size: 20px;
     align-items: center;
 
     &:hover{
-        background-color: $input-hover-color;
+        background-color: rgb(128, 41, 41);
         transition: background-color 0.1s ease-out;
     }
 
     &:active{
-        background-color: $input-click-color;
+        background-color: rgb(100, 36, 36);
         transform: translateY(1px);
         transition: 0.1s ease-out;
     }
