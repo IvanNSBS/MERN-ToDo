@@ -26,6 +26,8 @@ class TodoContainer extends React.Component {
     };
 
     updateTodo(todoObject, objIndex){
+
+        console.log("Updating todo: " + objIndex)
         const newTodoItems = Object.assign([...this.state.todoItems], {
             [objIndex]: todoObject
         });
