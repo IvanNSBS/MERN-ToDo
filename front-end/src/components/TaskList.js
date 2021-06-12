@@ -7,16 +7,22 @@ class TaskList extends React.Component {
         super(props);
 
         this.onTaskUpdated = this.onTaskUpdated.bind(this);
+        this.onTaskDeleted = this.onTaskDeleted.bind(this);
     }
 
     onTaskUpdated(newObj, index){
         this.props.updateTodo(newObj, index);
     }
 
+    onTaskDeleted(index){
+        this.props.deleteTodo(index);
+    }
+
     render() 
     {
         const taskItems = this.props.todoItems.map((todoObject, index) => 
-            <Task onTaskUpdated={this.onTaskUpdated} 
+            <Task onTaskUpdated={ this.onTaskUpdated } 
+                  onTaskDeleted={ this.onTaskDeleted }
                   description={todoObject.description} 
                   finished={todoObject.finished} index={index}>
             </Task>
