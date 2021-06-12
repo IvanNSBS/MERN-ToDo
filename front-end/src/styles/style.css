@@ -143,6 +143,12 @@
   height: 14px;
 }
 
+.invisible {
+  height: 28px;
+  width: 28px;
+  visibility: hidden;
+}
+
 .delete-task {
   height: 28px;
   width: 28px;
