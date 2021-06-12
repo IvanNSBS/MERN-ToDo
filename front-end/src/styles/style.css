@@ -133,6 +133,11 @@
   margin-left: 15px;
 }
 
+.task-checkbox-container .finished-task {
+  color: #4b4c4d;
+  text-decoration: line-through;
+}
+
 .task-checkbox-container .task-checkbox {
   width: 20px;
   height: 20px;
