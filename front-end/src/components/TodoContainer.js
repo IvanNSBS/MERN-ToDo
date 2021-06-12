@@ -12,6 +12,7 @@ class TodoContainer extends React.Component {
 
         this.addTodo = this.addTodo.bind(this);
         this.updateTodo = this.updateTodo.bind(this);
+        this.deleteTodo = this.deleteTodo.bind(this);
     }
 
     fetchTodoItems(){
@@ -31,13 +32,19 @@ class TodoContainer extends React.Component {
         this.setState({ todoItems: newTodoItems });
     }
 
+    deleteTodo(index){
+        this.setState( (state, props) =>({
+            todoItems: state.todoItems.filter((item, idx) => idx !== index)
+         }));
+    }
+
     render() 
     {
         return( 
         <div id="todo-container" onClick={this.toggleCondition}>
             <CurrentDayView />
             <TaskCreator addTodo={this.addTodo}/>
-            <TaskList todoItems={this.state.todoItems} updateTodo={this.updateTodo}/>
+            <TaskList todoItems={this.state.todoItems} updateTodo={this.updateTodo} deleteTodo={this.deleteTodo}/>
         </div>)
     }
 }
