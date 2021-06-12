@@ -5,13 +5,14 @@ import { BsTrashFill } from "react-icons/bs"
 class Task extends React.Component{
     constructor(props){
         super(props);
-        this.state = { finished: false }
+
         this.onCheckboxToggle = this.onCheckboxToggle.bind(this);
+        this.index = this.props.index;
     }
 
     onCheckboxToggle(event){
-        console.log()
-        this.setState({ finished: event.target.checked });
+        const newObj = {description: this.props.description, finished: event.target.checked}
+        this.props.onTaskUpdated( newObj, this.index );
     }
 
     render() 
@@ -20,7 +21,7 @@ class Task extends React.Component{
             <div className="task-container">
                 <div className="task-checkbox-container">
                     <input type="checkbox" className="task-checkbox" onClick={this.onCheckboxToggle}></input>
-                    <span className={`task ${this.state.finished ? "finished-task" : ""}`}> Add New Task</span> 
+                    <span className={`task ${this.props.finished ? "finished-task" : ""}`}>{this.props.description}</span> 
                 </div>
                 <button className="delete-task">
                     <BsTrashFill className="trashbin"/>
