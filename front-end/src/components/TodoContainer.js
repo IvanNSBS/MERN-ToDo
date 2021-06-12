@@ -36,7 +36,7 @@ class TodoContainer extends React.Component {
         return( 
         <div id="todo-container" onClick={this.toggleCondition}>
             <CurrentDayView />
-            <TaskCreator/>
+            <TaskCreator addTodo={this.addTodo}/>
             <TaskList todoItems={this.state.todoItems} updateTodo={this.updateTodo}/>
         </div>)
     }
