@@ -15,8 +15,7 @@ class Task extends React.Component{
     }
 
     onCheckboxToggle(event){
-        const newObj = {description: this.props.description, finished: event.target.checked}
-        this.props.onTaskUpdated( newObj, this.props.index );
+        this.props.onTaskUpdated( this.props.index );
     }
 
     onClickDelete(event){
