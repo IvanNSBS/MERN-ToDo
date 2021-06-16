@@ -19,7 +19,7 @@ class Task extends React.Component{
     }
 
     onClickDelete(event){
-        this.props.onTaskDeleted(this.props.index);
+        this.props.onTaskDeleted( this.props.index );
     }
 
     onMouseEnter(event) {
@@ -36,7 +36,7 @@ class Task extends React.Component{
         return( 
             <div className="task-container" onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
                 <div className="task-checkbox-container">
-                    <input type="checkbox" className="task-checkbox" onClick={this.onCheckboxToggle}></input>
+                    <input type="checkbox" className="task-checkbox" checked={this.props.finished} onClick={this.onCheckboxToggle}></input>
                     <span className={`task ${this.props.finished ? "finished-task" : ""}`}>{this.props.description}</span> 
                 </div>
                 <button className={ deleteBtnClass } onClick={this.onClickDelete}>
