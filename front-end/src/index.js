@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TodoView from './views/TodoView';
-import { todoModel, todoController } from "./models/todoModel";
+import { todoModel } from "./models/todoModel";
+import { todoController } from "./controllers/todoController";
 
 let model = new todoModel();
 let controller = new todoController(model);
