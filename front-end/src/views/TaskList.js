@@ -20,11 +20,15 @@ class TaskList extends React.Component {
 
     render() 
     {
+        console.log("Task List...")
+        console.log(this.props.todoItems);
+
         const taskItems = this.props.todoItems.map((todoObject, index) => 
             <Task onTaskUpdated={ this.onTaskUpdated } 
                   onTaskDeleted={ this.onTaskDeleted }
                   description={todoObject.description} 
-                  finished={todoObject.finished} index={index}>
+                  finished={todoObject.completed} 
+                  index={index}>
             </Task>
         );
 
