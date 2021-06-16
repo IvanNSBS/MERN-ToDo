@@ -19,7 +19,7 @@ class TaskCreator extends React.Component{
             return;
         }
 
-        this.props.addTodo( {description: this.state.value, finished: false} );
+        this.props.addTodo( this.state.value );
         this.setState({ value: "" })
     }
 

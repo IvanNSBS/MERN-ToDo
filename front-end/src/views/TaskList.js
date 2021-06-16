@@ -10,8 +10,8 @@ class TaskList extends React.Component {
         this.onTaskDeleted = this.onTaskDeleted.bind(this);
     }
 
-    onTaskUpdated(newObj, index){
-        this.props.updateTodo(newObj, index);
+    onTaskUpdated(index){
+        this.props.toggleTodo(index);
     }
 
     onTaskDeleted(index){
