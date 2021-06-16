@@ -21,10 +21,12 @@ class TodoContainer extends React.Component {
 
     toggleTodo(objIndex){
         this.props.model.toggleTodo(objIndex);
+        this.setState({ todoItems: this.props.model.getAllTodos() });
     }
 
     deleteTodo(objIndex){
         this.props.model.removeTodo(objIndex);
+        this.setState({ todoItems: this.props.model.getAllTodos() });
     }
 
     render() 
