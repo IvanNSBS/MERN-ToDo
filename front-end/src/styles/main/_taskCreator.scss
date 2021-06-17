@@ -7,8 +7,8 @@ $inputs-border-radius: 5px;
 .task-creator-container{
     margin-top: $container-margin-height;
     height: $objects-height;
-    width: 80%;
-    border-bottom: 1.5px solid rgba(0, 0, 0, 0.363);
+    width: 90%;
+    border-bottom: 1.5px solid $border-color;
 
     display: flex;
     align-items: center;
@@ -23,7 +23,7 @@ $inputs-border-radius: 5px;
     min-width: 350px;
 
     border-radius: 5px;
-    border: 1px solid rgb(28, 28, 31);
+    border: 1px solid $border-color;
     color: $secondary-font-color;
 
     padding-left: 30px;
@@ -37,7 +37,7 @@ $inputs-border-radius: 5px;
 
     background-color: $input-background-color;
     border-radius: 5px;
-    border: 1px solid rgb(28, 28, 31);
+    border: 1px solid $border-color;
     color: $secondary-font-color;
 
     transition: background-color 0.1s ease-out;

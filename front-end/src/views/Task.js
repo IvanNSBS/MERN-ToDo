@@ -36,12 +36,14 @@ class Task extends React.Component{
         return( 
             <div className="task-container" onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
                 <div className="task-checkbox-container">
-                    <input type="checkbox" className="task-checkbox" checked={this.props.finished} onClick={this.onCheckboxToggle}></input>
-                    <span className={`task ${this.props.finished ? "finished-task" : ""}`}>{this.props.description}</span> 
+                    <div>
+                        <input type="checkbox" className="task-checkbox" checked={this.props.finished} onClick={this.onCheckboxToggle}></input>
+                        <span className={`task ${this.props.finished ? "finished-task" : ""}`}>{this.props.description}</span> 
+                    </div>
+                    <button className={ deleteBtnClass } onClick={this.onClickDelete}>
+                        <BsTrashFill className="trashbin"/>
+                    </button>
                 </div>
-                <button className={ deleteBtnClass } onClick={this.onClickDelete}>
-                    <BsTrashFill className="trashbin"/>
-                </button>
             </div>
         )
     }

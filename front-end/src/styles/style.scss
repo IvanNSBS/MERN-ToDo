@@ -3,23 +3,24 @@
 @import "utils";
 @import "./main/taskAndList";
 
-$background-img-color: rgb(173, 58, 129);
-$todo-container-bgcolor: rgb(46, 47, 51);
 
 #main-body {
     width: 100vw;
     margin: 0;
-    background-color: $background-img-color;
+    background-blend-mode: multiply;
+    background: $background-img-color url('../assets/images/noise.jpg') no-repeat;
+    background-size: cover;
     @include displayFlex();
 }
 
 #todo-container{
     margin-top: 30px;
-    width: 650px;
-    height: 850px;
+    width: 550px;
+    height: 780px;
 
     background-color: $todo-container-bgcolor;
-    border-radius: 7.5px;
+    // border-radius: 7.5px;
+    border: 1px solid $border-color;
 
     display: flex;
     align-items: center;

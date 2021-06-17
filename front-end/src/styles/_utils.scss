@@ -1,9 +1,19 @@
-$primary-font-color: rgb(227, 227, 236);
-$secondary-font-color: rgb(105, 108, 110);
+$primary-font-color: #bdc3c7;
+$secondary-font-color: #95a5a6;
 
-$input-background-color: rgb(48, 47, 49);
-$input-hover-color: rgba(37, 37, 39, 0.493);
-$input-click-color: rgba(18, 18, 19, 0.493);
+$border-color: #95a5a6;
+
+$input-background-color: #384f66;
+$input-hover-color: #2c3e50;
+$input-click-color: #1c2c3b;
+
+$background-img-color: #2980b9;
+$todo-container-bgcolor: #2c3e50;
+
+$trashbin-color: #e74c3c;
+$trashbin-hover-color: #853027;
+$trashbin-click-color: #612b25;
+
 
 @mixin displayFlex {    
     display: flex;
