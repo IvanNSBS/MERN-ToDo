@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../styles/style.css"
 
 /**
@@ -21,7 +21,7 @@ function TaskCreator( { submitTask } ){
 
     return( 
         <form onSubmit={addTask} className="task-creator-container">
-            <input id="creator-input-field" placeHolder="Add a new task..." value={description} onChange={onDescriptionChange}/>
+            <input id="creator-input-field" placeholder="Add a new task..." value={description} onChange={onDescriptionChange}/>
             <button id="creator-submit-btn" onClick={addTask}>ADD</button>
         </form>
     )

@@ -20,7 +20,7 @@ function Task( { index, description, finished, updateTask, deleteTask } )
         <div className="task-container" onMouseEnter={() => updateMouseOver(true)} onMouseLeave={() => updateMouseOver(false)}>
             <div className="task-checkbox-container">
                 <div>
-                    <input type="checkbox" className="task-checkbox" defaultChecked={finished} onClick={() => updateTask(index)}></input>
+                    <input type="checkbox" className="task-checkbox" checked={finished} onChange={() => updateTask(index)}></input>
                     <span className={`task ${finished ? "finished-task" : ""}`}>{description}</span> 
                 </div>
                 <button className={ deleteBtnClass } onClick={() => {deleteTask(index)}}>
