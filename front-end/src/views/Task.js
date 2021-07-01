@@ -1,52 +1,41 @@
-import React from "react";
 import "../styles/style.css"
+import { useState } from "react";
 import { BsTrashFill } from "react-icons/bs"
 
-class Task extends React.Component{
-    constructor(props){
-        super(props);
+/**
+ * 
+ * @param {BigInteger} index - Task index in array 
+ * @param {String} description - Task description 
+ * @param {Boolean} finished - Whether task is marked as finished or not 
+ * @param {Function} updateTask - Function to update a task, given it's index 
+ * @param {Function} deleteTask - Function to delete a task, given it's index 
+ * @returns Task Element View
+ */
+function Task( { index, description, finished, updateTask, deleteTask } )
+{
+    const [isMouseOver, updateMouseOver] = useState(false);
 
-        this.state = { isMouveOver: false }
-
-        this.onCheckboxToggle = this.onCheckboxToggle.bind(this);
-        this.onClickDelete = this.onClickDelete.bind(this);
-        this.onMouseEnter = this.onMouseEnter.bind(this);
-        this.onMouseLeave = this.onMouseLeave.bind(this);
+    function onMouseEnter() { updateMouseOver(true) }
+    function onMouseLeave() { updateMouseOver(false) }
+    function toggleCheckbox(event) { 
+        console.log(event.target.value)
+        updateTask(index)
     }
 
-    onCheckboxToggle(event){
-        this.props.onTaskUpdated( this.props.index );
-    }
-
-    onClickDelete(event){
-        this.props.onTaskDeleted( this.props.index );
-    }
-
-    onMouseEnter(event) {
-        this.setState( { isMouveOver: true } ); 
-    }
-
-    onMouseLeave(event) {
-        this.setState( { isMouveOver: false } ); 
-    }
-
-    render() 
-    {
-        let deleteBtnClass = this.state.isMouveOver ? "delete-task" : "invisible";
-        return( 
-            <div className="task-container" onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
-                <div className="task-checkbox-container">
-                    <div>
-                        <input type="checkbox" className="task-checkbox" checked={this.props.finished} onClick={this.onCheckboxToggle}></input>
-                        <span className={`task ${this.props.finished ? "finished-task" : ""}`}>{this.props.description}</span> 
-                    </div>
-                    <button className={ deleteBtnClass } onClick={this.onClickDelete}>
-                        <BsTrashFill className="trashbin"/>
-                    </button>
+    let deleteBtnClass = isMouseOver ? "delete-task" : "invisible";
+    return( 
+        <div className="task-container" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+            <div className="task-checkbox-container">
+                <div>
+                    <input type="checkbox" className="task-checkbox" checked={finished} onClick={toggleCheckbox}></input>
+                    <span className={`task ${finished ? "finished-task" : ""}`}>{description}</span> 
                 </div>
+                <button className={ deleteBtnClass } onClick={() => {deleteTask(index)}}>
+                    <BsTrashFill className="trashbin"/>
+                </button>
             </div>
-        )
-    }
+        </div>
+    )
 }
 
 export default Task;
