@@ -46,7 +46,7 @@ class TodoView extends React.Component {
         return( 
         <div id="todo-container" onClick={this.toggleCondition}>
             <DateView />
-            <TaskCreator addTodo={ this.addTodo }/>
+            <TaskCreator submitTask = { this.addTodo }/>
             <TaskList  todoItems={ this.state.todoItems } toggleTodo={this.toggleTodo} deleteTodo={this.deleteTodo}/>
         </div>)
     }

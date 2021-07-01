@@ -1,53 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/style.css"
 
-class TaskCreator extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {value: "", placeHolder: "Add New Task"}
-        this.handleChange = this.handleChange.bind(this);
-        this.submitNewTask = this.submitNewTask.bind(this);
-    }
+/**
+ * 
+ * @param {Function} submitTask - Function that adds a task, given a string
+ */
+function TaskCreator( { submitTask } ){
+    const [description, setDescription] = useState("")
 
-    handleChange(event){
-        this.setState( { value: event.target.value } );
-    }
-
-    submitNewTask(){
-        if(this.state.value === "" || this.state.value === null || this.state.value === undefined){
-            console.log("Value is null, cant submit task :(")
+    function onDescriptionChange(event){ setDescription(event.target.value) }
+    function addTask(e){
+        e.preventDefault();
+        
+        if(description === "")
             return;
-        }
 
-        this.props.addTodo( this.state.value );
-        this.setState({ value: "" })
+        submitTask( description );
+        setDescription("")
     }
 
-    render() 
-    {
-        return( 
-            <div className="task-creator-container">
-                <TaskInputHandler ph={this.state.placeHolder} value={this.state.value} onInputChanged={this.handleChange}/>
-                <button id="creator-submit-btn" onClick={this.submitNewTask}>ADD</button>
-            </div>
-        )
-    }
-}
-
-class TaskInputHandler extends React.Component {
-    constructor(props){
-        super(props);
-
-        this.handleChange = this.handleChange.bind(this);
-    }
-
-    handleChange(event){
-        this.props.onInputChanged(event)
-    }
-
-    render(){
-        return <input id="creator-input-field" placeHolder={this.props.ph} value={this.props.value} onChange={this.handleChange}></input>
-    }
+    return( 
+        <form onSubmit={addTask} className="task-creator-container">
+            <input id="creator-input-field" placeHolder="Add a new task..." value={description} onChange={onDescriptionChange}/>
+            <button id="creator-submit-btn" onClick={addTask}>ADD</button>
+        </form>
+    )
 }
 
 export default TaskCreator;
