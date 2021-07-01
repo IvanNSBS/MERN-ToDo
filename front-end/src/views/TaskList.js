@@ -2,40 +2,29 @@ import React from "react";
 import Task from "./Task";
 import "../styles/style.css"
 
-class TaskList extends React.Component {
-    constructor(props){
-        super(props);
+/**
+ * @param {todoModel} todoItems - todoModel object 
+ * @param {Function} toggleTodo - Toggles the completion state of a todo, given it's index 
+ * @param {Function} deleteTodo - Toggles the completion state of a todo, given it's index 
+ */
+function TaskList( { todoItems, toggleTodo, deleteTodo } )
+{
+    const taskItems = todoItems.map((todoObject, index) => 
+        <Task 
+            key = {index}
+            updateTask = { toggleTodo } 
+            deleteTask = { deleteTodo }
+            description = { todoObject.description } 
+            finished = { todoObject.completed } 
+            index = { index }>
+        </Task>
+    );
 
-        this.onTaskUpdated = this.onTaskUpdated.bind(this);
-        this.onTaskDeleted = this.onTaskDeleted.bind(this);
-    }
-
-    onTaskUpdated(index){
-        this.props.toggleTodo(index);
-    }
-
-    onTaskDeleted(index){
-        this.props.deleteTodo(index);
-    }
-
-    render() 
-    {
-        const taskItems = this.props.todoItems.map((todoObject, index) => 
-            <Task 
-                updateTask = { this.onTaskUpdated } 
-                deleteTask = { this.onTaskDeleted }
-                description = { todoObject.description } 
-                finished = { todoObject.completed } 
-                index = { index }>
-            </Task>
-        );
-
-        return( 
-            <div id="task-list-container">
-                {taskItems}
-            </div>
-        )
-    }
+    return( 
+        <div id="task-list-container">
+            {taskItems}
+        </div>
+    )
 }
 
 export default TaskList;
