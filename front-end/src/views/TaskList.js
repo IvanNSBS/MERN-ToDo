@@ -7,13 +7,12 @@ import "../styles/style.css"
  * @param {Function} toggleTodo - Toggles the completion state of a todo, given it's index 
  * @param {Function} deleteTodo - Toggles the completion state of a todo, given it's index 
  */
-function TaskList( { todoItems, toggleTodo, deleteTodo } )
+function TaskList( { todoItems } )
 {
+
     const taskItems = todoItems.map((todoObject, index) => 
         <Task 
             key = {index}
-            updateTask = { toggleTodo } 
-            deleteTask = { deleteTodo }
             description = { todoObject.description } 
             finished = { todoObject.completed } 
             index = { index }>
