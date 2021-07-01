@@ -1,8 +1,10 @@
 import "../styles/style.css"
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { DateView } from "./DateView";
 import TaskCreator from "./TaskCreator";
 import TaskList from "./TaskList";
+
+export const ControllerContext = React.createContext();
 
 /**
  * 
@@ -16,12 +18,16 @@ function TodoView( { controller } )
     function updateTodo(index) { setTodos(controller.requestToggleTodo(index)); }
     function deleteTodo(index) { setTodos(controller.requestRemoveTodo(index)); }
 
+    const contextData = { create: createTodo, update: updateTodo, delete: deleteTodo}
+
     return ( 
-        <div id="todo-container">
-            <DateView />
-            <TaskCreator submitTask = { createTodo }/>
-            <TaskList  todoItems={ allTodos } toggleTodo={ updateTodo } deleteTodo={ deleteTodo }/>
-        </div>
+        <ControllerContext.Provider value={contextData}>
+            <div id="todo-container">
+                <DateView />
+                <TaskCreator submitTask = { createTodo }/>
+                <TaskList todoItems={ allTodos } toggleTodo={ updateTodo } deleteTodo={ deleteTodo }/>
+            </div>
+        </ControllerContext.Provider>
     )
 }
 
