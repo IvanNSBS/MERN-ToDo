@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/style.css"
-import CurrentDayView from "./CurrentDayView";
+import { DateView } from "./DateView";
 import TaskCreator from "./TaskCreator";
 import TaskList from "./TaskList";
 
@@ -45,7 +45,7 @@ class TodoView extends React.Component {
     {
         return( 
         <div id="todo-container" onClick={this.toggleCondition}>
-            <CurrentDayView />
+            <DateView />
             <TaskCreator addTodo={ this.addTodo }/>
             <TaskList  todoItems={ this.state.todoItems } toggleTodo={this.toggleTodo} deleteTodo={this.deleteTodo}/>
         </div>)
