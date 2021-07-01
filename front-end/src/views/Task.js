@@ -15,19 +15,12 @@ function Task( { index, description, finished, updateTask, deleteTask } )
 {
     const [isMouseOver, updateMouseOver] = useState(false);
 
-    function onMouseEnter() { updateMouseOver(true) }
-    function onMouseLeave() { updateMouseOver(false) }
-    function toggleCheckbox(event) { 
-        console.log(event.target.value)
-        updateTask(index)
-    }
-
     let deleteBtnClass = isMouseOver ? "delete-task" : "invisible";
     return( 
-        <div className="task-container" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+        <div className="task-container" onMouseEnter={() => updateMouseOver(true)} onMouseLeave={() => updateMouseOver(false)}>
             <div className="task-checkbox-container">
                 <div>
-                    <input type="checkbox" className="task-checkbox" checked={finished} onClick={toggleCheckbox}></input>
+                    <input type="checkbox" className="task-checkbox" defaultChecked={finished} onClick={() => updateTask(index)}></input>
                     <span className={`task ${finished ? "finished-task" : ""}`}>{description}</span> 
                 </div>
                 <button className={ deleteBtnClass } onClick={() => {deleteTask(index)}}>
