@@ -1,13 +1,16 @@
-import React, { useState, useRef } from "react";
 import "../styles/style.css"
+import { ControllerContext, ACTIONS } from "./TodoView";
+import React, { useState, useRef, useContext } from "react";
 
 /**
  * 
  * @param {Function} submitTask - Function that adds a task, given a string
  */
-function TaskCreator( { submitTask } ){
+function TaskCreator()
+{
     const [description, setDescription] = useState("")
     const inputRef = useRef();
+    const controllerDispatcher = useContext(ControllerContext);
 
     function onDescriptionChange(event){ setDescription(event.target.value) }
     function addTask(e){
@@ -16,7 +19,7 @@ function TaskCreator( { submitTask } ){
         if(description === "")
             return;
 
-        submitTask( description );
+        controllerDispatcher( { type: ACTIONS.CREATE, payload: { description }} );
         setDescription("")
 
         inputRef.current.focus();

@@ -1,31 +1,48 @@
 import "../styles/style.css"
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { DateView } from "./DateView";
 import TaskCreator from "./TaskCreator";
 import TaskList from "./TaskList";
 
 export const ControllerContext = React.createContext();
+export const ACTIONS = { CREATE: 'create', UPDATE: 'update', DELETE: 'delete'}
+
+function useTodoController(todoController)
+{
+    const [todos, setTodos] = useState(todoController.requestAllTodos());
+    
+    function dispatcher(action) 
+    {
+        switch (action.type)
+        {
+            case ACTIONS.CREATE:
+                return setTodos(todoController.requestAddTodo(action.payload.description));
+            case ACTIONS.UPDATE:
+                return setTodos(todoController.requestToggleTodo(action.payload.index)); 
+            case ACTIONS.DELETE:
+                return setTodos(todoController.requestRemoveTodo(action.payload.index));
+            default:
+                return todos;
+        }
+    }
+
+    return [todos, dispatcher]
+}
+
 
 /**
- * 
- * @param {todoController} controller - todoController object 
+ * @param {todoController} todoController - todoController object 
  */
 function TodoView( { controller } )
 {
-    const [allTodos, setTodos] = useState( controller.requestAllTodos() )
-
-    function createTodo(descr) { setTodos(controller.requestAddTodo(descr)); }
-    function updateTodo(index) { setTodos(controller.requestToggleTodo(index)); }
-    function deleteTodo(index) { setTodos(controller.requestRemoveTodo(index)); }
-
-    const contextData = { create: createTodo, update: updateTodo, delete: deleteTodo}
+    const [todos, dispatch] = useTodoController(controller);
 
     return ( 
-        <ControllerContext.Provider value={contextData}>
+        <ControllerContext.Provider value={ dispatch }>
             <div id="todo-container">
                 <DateView />
-                <TaskCreator submitTask = { createTodo }/>
-                <TaskList todoItems={ allTodos } toggleTodo={ updateTodo } deleteTodo={ deleteTodo }/>
+                <TaskCreator/>
+                <TaskList todoItems={ todos }/>
             </div>
         </ControllerContext.Provider>
     )
