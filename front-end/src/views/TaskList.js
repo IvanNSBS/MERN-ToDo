@@ -9,7 +9,6 @@ import "../styles/style.css"
  */
 function TaskList( { todoItems } )
 {
-
     const taskItems = todoItems.map((todoObject, index) => 
         <Task 
             key = {index}
