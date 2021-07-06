@@ -1,6 +1,6 @@
 import "../styles/style.css";
 import { ControllerContext, ACTIONS } from "./TodoView";
-import { useState, useContext } from "react";
+import { useState, useContext, useRef } from "react";
 import { BsTrashFill } from "react-icons/bs";
 
 /**
@@ -16,7 +16,8 @@ function Task( { index, description, finished } )
 {
     const [isMouseOver, updateMouseOver] = useState(false);
     const controllerDispatcher = useContext(ControllerContext);
-    
+    const checkboxRef = useRef();
+
     let deleteBtnClass = isMouseOver ? "delete-task" : "invisible";
 
 
@@ -24,8 +25,8 @@ function Task( { index, description, finished } )
         <div className="task-container" onMouseEnter={() => updateMouseOver(true)} onMouseLeave={() => updateMouseOver(false)}>
             <div className="task-checkbox-container">
                 <div>
-                    <input  type="checkbox" className="task-checkbox" checked={finished} 
-                            onChange={() => controllerDispatcher( { type: ACTIONS.UPDATE, payload: { index }} )}>
+                    <input  ref={checkboxRef} type="checkbox" className="task-checkbox" checked={finished} 
+                            onChange={() => controllerDispatcher( { type: ACTIONS.UPDATE, payload: { index: index, value: checkboxRef.current.checked }} )}>
                     </input>
                     <span className={`task ${finished ? "finished-task" : ""}`}>{description}</span> 
                 </div>

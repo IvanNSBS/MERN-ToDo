@@ -13,8 +13,8 @@ const todoModel = function(){
         this.todos = this.todos.filter((item, idx) => idx !== todoIndex);
     }
 
-    this.toggleTodo = function(todoIndex) {
-        const newTodo = new todoItem(this.getTodo(todoIndex).getDescription(), !this.getTodo(todoIndex).completed)
+    this.updateCompleted = function(todoIndex, newCompleted) {
+        const newTodo = new todoItem(this.getTodo(todoIndex).getDescription(), newCompleted)
         this.todos = Object.assign([...this.todos], {
             [todoIndex]: newTodo
         });
