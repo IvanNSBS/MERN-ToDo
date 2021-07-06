@@ -18,7 +18,7 @@ function useTodoController(todoController)
             case ACTIONS.CREATE:
                 return setTodos(todoController.requestAddTodo(action.payload.description));
             case ACTIONS.UPDATE:
-                return setTodos(todoController.requestToggleTodo(action.payload.index)); 
+                return setTodos(todoController.requestUpdateCompleted(action.payload.index, action.payload.value)); 
             case ACTIONS.DELETE:
                 return setTodos(todoController.requestRemoveTodo(action.payload.index));
             default:

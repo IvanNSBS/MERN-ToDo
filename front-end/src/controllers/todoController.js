@@ -29,8 +29,8 @@ const todoController = function(todoModel) {
         return this.model.getAllTodos();
     }
 
-    this.requestToggleTodo = function(todoIndex) {
-        this.model.toggleTodo(todoIndex);
+    this.requestUpdateCompleted = function(todoIndex, newValue) {
+        this.model.updateCompleted(todoIndex, newValue);
 
         return this.model.getAllTodos();
     }
