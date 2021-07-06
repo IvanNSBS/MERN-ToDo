@@ -57,33 +57,59 @@ $forms-size: 14px;
 }
 
 
-.delete-task {
-    height: 28px;
-    width: 28px;
-    background-color: $trashbin-color;
-    border-radius: 4px;
-    border: 1px solid $border-color;
-
+.task-btns-container
+{
     display: flex;
-    justify-content: center;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
 
-    margin-left: 15px;
-
-    &:hover{
-        background-color: $trashbin-hover-color;
-        transition: background-color 0.1s ease-out;
+    @mixin task-btn($bgColor, $bgColorHover, $bgColorClick)
+    {
+        height: 28px;
+        width: 28px;
+        background-color: $bgColor;
+        border-radius: 4px;
+        border: 1px solid $border-color;
+    
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+        margin-left: 15px;
+    
+        &:hover{
+            background-color: $bgColorHover;
+            transition: background-color 0.1s ease-out;
+        }
+    
+        &:active{
+            background-color: $bgColorClick;
+            transform: translateY(1px);
+            transition: 0.1s ease-out;
+        }
     }
 
-    &:active{
-        background-color: $trashbin-click-color;
-        transform: translateY(1px);
-        transition: 0.1s ease-out;
+    .edit-description-btn 
+    {
+        @include task-btn($edit-color, $edit-hover-color, $edit-click-color);
+
+        .edit
+        {
+            color: $primary-font-color;
+            width: 40px;
+            height: 40px;
+        }
     }
 
-    .trashbin{
-        color: $primary-font-color;
-        width: 40px;
-        height: 40px;
+    .delete-task-btn {
+        @include task-btn($trashbin-color, $trashbin-hover-color, $trashbin-click-color);
+
+        .trashbin
+        {
+            color: $primary-font-color;
+            width: 40px;
+            height: 40px;
+        }
     }
 }
