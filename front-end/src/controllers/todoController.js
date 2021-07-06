@@ -34,6 +34,12 @@ const todoController = function(todoModel) {
 
         return this.model.getAllTodos();
     }
+
+    this.requestUpdateDescription = function(todoIndex, newValue) {
+        this.model.updateDescription(todoIndex, newValue);
+
+        return this.model.getAllTodos();
+    }
 }
 
 module.exports = {

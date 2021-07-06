@@ -19,15 +19,21 @@ const todoModel = function(){
             [todoIndex]: newTodo
         });
     }
+
+    this.updateDescription = function(todoIndex, newDescription) {
+        const newTodo = new todoItem(newDescription, this.getTodo(todoIndex).getCompleted())
+        this.todos = Object.assign([...this.todos], {
+            [todoIndex]: newTodo
+        });
+    }
 }
 
 const todoItem = function(description, completed){
     this.description = description;
     this.completed = completed;
 
-    this.setCompleted = function(value){ this.completed = value; }
     this.getDescription = function() { return this.description; }
-    this.getCompleted = function() { return this.getCompleted; }
+    this.getCompleted = function() { return this.completed; }
 }
 
 module.exports = {

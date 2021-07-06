@@ -158,7 +158,61 @@
   visibility: hidden;
 }
 
-.delete-task {
+.task-btns-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.task-btns-container .edit-description-btn {
+  height: 28px;
+  width: 28px;
+  background-color: #27852c;
+  border-radius: 4px;
+  border: 1px solid #95a5a6;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 15px;
+}
+
+.task-btns-container .edit-description-btn:hover {
+  background-color: #217240;
+  -webkit-transition: background-color 0.1s ease-out;
+  transition: background-color 0.1s ease-out;
+}
+
+.task-btns-container .edit-description-btn:active {
+  background-color: #1c4d20;
+  -webkit-transform: translateY(1px);
+          transform: translateY(1px);
+  -webkit-transition: 0.1s ease-out;
+  transition: 0.1s ease-out;
+}
+
+.task-btns-container .edit-description-btn .edit {
+  color: #bdc3c7;
+  width: 40px;
+  height: 40px;
+}
+
+.task-btns-container .delete-task-btn {
   height: 28px;
   width: 28px;
   background-color: #e74c3c;
@@ -176,13 +230,13 @@
   margin-left: 15px;
 }
 
-.delete-task:hover {
+.task-btns-container .delete-task-btn:hover {
   background-color: #853027;
   -webkit-transition: background-color 0.1s ease-out;
   transition: background-color 0.1s ease-out;
 }
 
-.delete-task:active {
+.task-btns-container .delete-task-btn:active {
   background-color: #612b25;
   -webkit-transform: translateY(1px);
           transform: translateY(1px);
@@ -190,7 +244,7 @@
   transition: 0.1s ease-out;
 }
 
-.delete-task .trashbin {
+.task-btns-container .delete-task-btn .trashbin {
   color: #bdc3c7;
   width: 40px;
   height: 40px;
