@@ -1,5 +1,5 @@
+// import React from 'react'
 const axios = require('axios')
-
 
 const todoController = function(todoModel) {
     this.model = todoModel;
@@ -32,9 +32,16 @@ const todoController = function(todoModel) {
     }
 
     this.requestAddTodo = function(todoDescription, completed = false) {
-        this.model.addTodo(todoDescription, completed);
+        const newTodo = { description : todoDescription, completed: completed };
 
-        return this.model.getAllTodos();
+        let that = this;
+        axios.post("http://localhost:4000/todos/add", newTodo).then((response) => {
+            that.model.addTodo(todoDescription, completed);
+
+            return that.model.getAllTodos();
+        });
+
+        return that.model.getAllTodos();
     }
 
     this.requestRemoveTodo = function(todoIndex) {

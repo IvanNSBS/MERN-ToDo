@@ -28,12 +28,14 @@ const todoModel = function(){
     }
 }
 
-const todoItem = function(description, completed){
+const todoItem = function(id, description, completed){
+    this.id = id;
     this.description = description;
     this.completed = completed;
 
     this.getDescription = function() { return this.description; }
     this.getCompleted = function() { return this.completed; }
+    this.getId = function() { return this.id; }
 }
 
 module.exports = {

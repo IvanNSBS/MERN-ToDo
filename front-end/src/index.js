@@ -1,20 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TodoView from './views/TodoView';
-import { todoModel } from "./models/todoModel";
-import { todoController } from "./controllers/todoController";
+import ReactTodoController from "./controllers/reactController";
 
-let model = new todoModel();
-// model.fetchTodosFromServer();
+// let model = new todoModel();
 
-let controller = new todoController(model);
-controller.loadTodosFromDatabase().then(res => {
-    ReactDOM.render(
-      <React.StrictMode>
-        <TodoView controller = { controller }/>
-      </React.StrictMode>,
-      document.getElementById('root')
-    );
-});
+ReactDOM.render(
+  <React.StrictMode>
+    <ReactTodoController/>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
 
 

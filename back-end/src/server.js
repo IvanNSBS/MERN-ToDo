@@ -2,9 +2,9 @@ const express       = require('express');
 const bodyParser    = require('body-parser');
 const cors          = require('cors');
 const mongoose      = require('mongoose');
-const PORT = 4000;
-const app = express();
-const todoRoutes        = express.Router();
+const PORT          = 4000;
+const app           = express();
+const todoRoutes    = express.Router();
 
 let Todo = require('./todoSchema');
 app.use(cors());
@@ -36,6 +36,7 @@ todoRoutes.route('/add').post(function(req, res) {
     let todo = new Todo(req.body);
     todo.save()
         .then(todo => {
+            console.log("received add request of: " + todo)
             res.status(200).json({'todo': 'todo added successfully'});
         })
         .catch(err => {
@@ -82,6 +83,15 @@ todoRoutes.route('/update_completed/:id').post(function(req, res)
                 res.status(400).send("Update not possible");
             });
         }
+    });
+});
+
+todoRoutes.route('/delete/:id').delete(function(req, res)
+{
+    console.log("Receved delete request of: " + req.params.id)
+    Todo.findByIdAndDelete(req.params.id, function(err, todo){
+        if(err){ console.log(res); console.log(err); }
+        else { res.status(200).send("deleted" + todo + " successfully") }
     });
 });
 
