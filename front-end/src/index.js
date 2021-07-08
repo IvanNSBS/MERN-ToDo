@@ -5,13 +5,16 @@ import { todoModel } from "./models/todoModel";
 import { todoController } from "./controllers/todoController";
 
 let model = new todoModel();
-let controller = new todoController(model);
-controller.loadTodosFromDatabase();
+// model.fetchTodosFromServer();
 
-ReactDOM.render(
-  <React.StrictMode>
-    <TodoView controller = { controller }/>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+let controller = new todoController(model);
+controller.loadTodosFromDatabase().then(res => {
+    ReactDOM.render(
+      <React.StrictMode>
+        <TodoView controller = { controller }/>
+      </React.StrictMode>,
+      document.getElementById('root')
+    );
+});
+
 

@@ -1,8 +1,22 @@
+const axios = require('axios')
+
+
 const todoController = function(todoModel) {
     this.model = todoModel;
 
-    this.loadTodosFromDatabase = function() {
-
+    this.loadTodosFromDatabase = async() => {
+        try{
+            await axios.get("http://localhost:4000/todos/").then(res => {
+                let that = this;
+                res.data.forEach(x => {
+                    console.log(x); 
+                    that.model.addTodo(x.description, x.completed)
+                });
+    
+                console.log(this.model.getAllTodos());
+            })
+        }
+        catch(err) { console.log(err) }
     }
 
     this.updateDatabase = function() {
@@ -17,8 +31,8 @@ const todoController = function(todoModel) {
         return this.model.getTodo(todoIndex);
     }
 
-    this.requestAddTodo = function(todoDescription) {
-        this.model.addTodo(todoDescription);
+    this.requestAddTodo = function(todoDescription, completed = false) {
+        this.model.addTodo(todoDescription, completed);
 
         return this.model.getAllTodos();
     }

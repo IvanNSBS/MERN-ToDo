@@ -1,8 +1,8 @@
 const todoModel = function(){
     this.todos = [];
     
-    this.addTodo = function(todoDescription) {
-        this.todos = this.todos.concat(new todoItem(todoDescription, false));
+    this.addTodo = function(todoDescription, completed = false) {
+        this.todos = this.todos.concat(new todoItem(todoDescription, completed));
     }
 
     this.getTodo = function(todoIndex) { return this.todos[todoIndex]; }
